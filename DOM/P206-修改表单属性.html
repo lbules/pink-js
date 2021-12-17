@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-02 10:51:17
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-02 11:08:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>button</button>
+    <input type="text" value="please input text">
+
+    <script>
+        ndButton = document.querySelector('button');
+        ndInput = document.querySelector('input');
+        console.log(ndButton);
+        console.log(ndInput);
+
+        // 控制台打印input输入的值
+        ndButton.onclick = function() {
+            console.log(ndInput.value);
+            // ndButton.disabled = true;  // 只能点击一次
+            this.disabled = true;   // 实现一样的效果，this指向事件函数的调用者
+        }
+
+        // 鼠标点击时清空输入框
+        ndInput.onclick = function() {
+            ndInput.value = '';
+        }
+    </script>
+</body>
+
+</html>

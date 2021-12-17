@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-09 14:32:02
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-09 14:39:30
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开关灯效果</title>
+</head>
+<body>
+    
+    <button id="btn">关灯</button>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const body = document.body;
+        let status = 0;
+        btn.onclick = function() {
+            if(status==0) {
+                console.log('111');
+                body.style.backgroundColor = 'black';
+                status = 1;
+            }else {
+                console.log('222');
+                body.style.backgroundColor = 'white';
+                status = 0;
+            }
+        }
+
+    </script>
+</body>
+</html>

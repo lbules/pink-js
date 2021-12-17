@@ -1,0 +1,64 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-02 15:26:59
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-02 15:40:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝关闭二维码</title>
+
+    <style>
+        .box {
+            position: relative;
+            width: 74px;
+            height: 88px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin: 100px auto;
+            font-size: 12px;
+            color: #f40;
+        }
+
+        .box img {
+            width: 60px;
+            margin-top: 5px;
+        }
+        .btn-close {
+            position: absolute;
+            top:-1px;
+            left: -15px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #ccc;
+            border-right: none;
+            line-height: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        淘宝二维码
+        <img src="./images/tao.png" alt="淘宝二维码">
+        <i id="close" class="btn-close">X</i>
+    </div>
+
+    <script>
+        /* 
+            思路：使用display:none display:block来显示隐藏元素
+        */
+        box = document.getElementById('box');
+        closeBtn = document.getElementById('close');
+        closeBtn.onclick = function() {
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

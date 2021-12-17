@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历数组</title>
+</head>
+
+<body>
+    <script>
+        // 获取数组中的最大值
+        const arr1 = [2, 6, 1, 77, 52, 25, 7];
+        const arr2 = [2, 6, 1, 77, 52, 25, 7,99];
+
+        // 使用冒泡排序
+        function bubbleSort(arr) {
+            const length = arr.length;
+            for (let i = 0; i < length - 1; i++) {
+                for (let j = 0; j < length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {  // 前面的比后面大
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1]
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        bubbleSort(arr1)
+        console.log(arr1);
+        console.log(arr1[arr1.length-1]);
+
+        // 设置一个最大值max
+        let max = arr2[0]
+        for(let i=1;i<arr2.length;i++) {
+            if(max<arr2[i]) {
+                max = arr2[i]
+            }
+        }
+
+        console.log(max);
+    </script>
+</body>
+
+</html>

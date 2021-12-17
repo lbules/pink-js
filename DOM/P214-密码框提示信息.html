@@ -1,0 +1,85 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-08 14:06:25
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-08 14:40:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码框提示信息
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 200px auto;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid red;
+            padding: 5px 20px;
+            /* text-align: center; */
+        }
+        .password {
+            float: left;
+            width: 200px;
+            height: 28px;
+            margin-right: 10px;
+            outline: none;
+            border: 1px solid blueviolet;
+            border-radius: 4px;
+        }
+        .info {
+            float: left;
+            color: #999;
+            font-size: 14px;
+            padding-left: 18px;
+            background: url(images/mess.png) no-repeat left center;
+        }
+        .error_info {
+            color: red;
+            background: url(images/wrong.png) no-repeat left center;
+        }
+        .right_info {
+            color: green;
+            background: url(images/right.png) no-repeat left center;
+        }   
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input class="password" type="password">
+        <p class="info">请输入6~16位密码</p>
+    </div>
+
+    <script>
+        // 1. 获取节点
+        pwd  = document.querySelector('input');
+        info = document.querySelector('p');
+
+        //2. 当输入框失去焦点时，进行判断
+        pwd.onblur = function() {
+            // 2.1 输入不到6~16位
+            password = pwd.value;
+            if(password.length<6||password.length>16) {
+                info.className = 'info error_info';
+                info.innerText = '你输入的密码位数不对'
+            }else {
+                info.className = 'info right_info';
+                info.innerText = '输入的密码正确'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

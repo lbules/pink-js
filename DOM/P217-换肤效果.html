@@ -1,0 +1,36 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-09 14:58:16
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-09 15:02:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换肤效果</title>
+</head>
+
+<body>
+    <button>red</button>
+    <button>yellow</button>
+    <button>blue</button>
+    <button>black</button>
+
+    <script>
+        const body = document.body;
+        const btns = document.querySelectorAll('button');
+        const color = ['red','yellow','blue','black']
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                body.style.backgroundColor = color[i];
+            }
+        }
+    </script>
+</body>
+
+</html>

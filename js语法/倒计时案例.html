@@ -1,0 +1,46 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-11-23 14:30:49
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-11-23 14:48:43
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+
+<body>
+    <script>
+        /* 
+                                使用时间戳，毫秒数相减再转换成时分秒
+                                d = parseInt(总秒数/60 /60 /24)  // 计算天数
+                                h = parseInt(总秒数/60 /60 %24)  // 计算小时
+                                m = parseInt(总秒数/60 %60)  // 计算分钟
+                                s = parseInt(总秒数%60)  // 计算当前秒
+                                 */
+
+        function countDown(time) {
+            const nowtime = +new Date(); // 当前时间的总毫秒
+            const inputTime = +new Date(time); // 输入时间的总毫秒数
+            let times = (inputTime - nowtime) / 1000; // 获取总秒数
+
+            let d = parseInt(times / 60 / 60 / 24);
+            let h = parseInt(times / 60 / 60 % 24);
+            let m = parseInt(times / 60 % 60);
+            let s = parseInt(times % 60);
+
+            return d+'天'+h+'小时'+m+'分'+s+'秒'
+        }
+
+        const t = new Date(2021,10,24)
+        console.log(countDown(t));
+</script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-02 14:41:25
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-02 15:15:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿京东显示隐藏密码</title>
+
+    <style>
+        .box {
+            position: relative;
+            margin: 100px auto;
+            width: 400px;
+            border-bottom: 1px solid red;
+        }
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+        label {
+            position: absolute;
+            right: 0;
+        }
+
+        label>img {
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <label for="">
+            <img src="./images/close.png" alt="">
+        </label>
+        <input type="password" placeholder="please input password">
+    </div>
+    
+
+    <script>
+        // 1. 获取节点
+        password = document.querySelector('input');
+        btn = document.querySelector('label');
+        img = document.querySelector('img')
+
+        let show = false;
+        btn.onclick = function() {
+            // 已显示
+            if(show) {
+                password.type = 'password';
+                img.src = './images/close.png';
+                show = false;
+            }else {
+                // 已隐藏
+                password.type = 'text';
+                img.src = './images/open.png';
+                show = true;
+            }
+        }
+    </script>
+</body>
+</html>

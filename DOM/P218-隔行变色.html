@@ -1,0 +1,141 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-10 14:10:18
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-10 14:40:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单行变色</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .table {
+            margin: 100px auto;
+            width: 800px;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-size: 14px;
+            border-collapse: collapse;
+        }
+        
+        .thead {
+            background-color: cornflowerblue;
+            height: 30px;
+            /* border: none; */
+        }
+        
+        .table tr {
+            height: 30px;
+        }
+        
+        tbody td {
+            border-bottom: 1px solid #d7d7d7;
+        }
+
+        /* 也可以使用css中的伪类:hover来实现 */
+        /* tbody tr:hover {
+            background-color: pink;
+        }
+ */
+        
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table" class="table">
+        <thead class="thead">
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净增长率</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+                <tr>
+                    <td>003526</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.075</td>
+                    <td>1.079</td>
+                    <td>1.074</td>
+                    <td>+0.047%</td>
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+
+    <script>
+        const tr_list = document.querySelector('tbody').querySelectorAll('tr');
+        console.log(tr_list);
+
+        for (let i = 0; i < tr_list.length; i++) {
+            // 鼠标进入显示背景色
+            tr_list[i].onmouseover = function() {
+                this.className = 'bg';
+            }
+            
+            // 鼠标离开移除背景色
+            tr_list[i].onmouseleave = function() {
+                this.className = '';
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

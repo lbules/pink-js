@@ -1,0 +1,115 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-10 15:02:10
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-12 14:16:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单全选和取消</title>
+
+    <style>
+        table {
+            width: 250px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            border-collapse: collapse;
+            font-size: 14px;
+            background-color: #eee;
+        }
+        
+        thead {
+            background-color: royalblue;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        td {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td><input type="checkbox" name="selctorAll" id="selctorAll"></td>
+                <td>商品</td>
+                <td>价钱</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>Iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>ipad pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>ipad air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>apple watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 全选框
+        nd_all = document.getElementById('selctorAll');
+        // 表单内的选择框
+        checkbox_list = document.querySelector('tbody').querySelectorAll('input')
+        
+        // 添加点击全选、取消事件
+        nd_all.onclick = function() {
+            // this.checked,当前元素是否被选中
+            if (this.checked) {
+                for (let i = 0; i < checkbox_list.length; i++) {
+                    // checkbox_list[i].checked = "checked"
+                    // 其余选择框的状态跟随全选框的状态
+                    checkbox_list[i].checked = this.checked;
+                }
+            } else {
+                for (let i = 0; i < checkbox_list.length; i++) {
+                    // checkbox_list[i].checked = ""
+                    checkbox_list[i].checked = this.checked;
+                }
+            }
+        }
+
+        // 当某一选择框未被选中时
+        for(let i =0;i<checkbox_list.length;i++) {
+            checkbox_list[i].onclick = function() {
+                // 控制是否被全选中，默认被全选
+                flag = true;
+                // 每次被点击都检查所有的复选框
+                for(let i=0;i<checkbox_list.length;i++) {
+                    // 如果有未被选中
+                    if(!checkbox_list[i].checked) {
+                        flag = false;
+                        // 有一个未被选中就退出
+                        break;
+                    }
+                    nd_all.checked = flag;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组练习</title>
+</head>
+
+<body>
+    <script>
+        /* 输出星期日 */
+        const arr = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+        console.log(arr[6]);
+
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        const arrNum = [2, 6, 1, 7, 4]
+        let sum = 0;
+        let average = 0;
+        for (let i = 0; i < arrNum.length; i++) {
+            sum += arrNum[i];
+        }
+        average = sum/arrNum.length
+        console.log(sum,average);
+    </script>
+</body>
+
+</html>

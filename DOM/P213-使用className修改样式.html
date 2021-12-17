@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-08 13:54:54
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-08 14:02:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用className修改样式</title>
+
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            color: white;
+            background-color: black;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        hello!
+    </div>
+
+    <script>
+        const box = document.querySelector('div');
+        box.onclick = function() {
+            // 点击后更改样式,类名不用加点
+            box.className = 'box2';
+        }
+    </script>
+</body>
+</html>

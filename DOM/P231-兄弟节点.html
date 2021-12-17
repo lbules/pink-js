@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-14 14:09:46
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-14 14:23:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>this is p</p>
+    <div>this is div</div>
+    <span>this is span</span>
+
+    <script>
+        const div = document.querySelector('div');
+        // 获取下一个兄弟节点，包括元素节点、文本节点等等
+        const brotherNode01 = div.nextSibling;
+         // 获取上一个兄弟节点
+        const brotherNode03 = div.previousSibling;
+        console.log(brotherNode01);  // #text
+        // 获取下一个元素节点
+        const brotherNode02 = div.nextElementSibling;
+        // 获取上一个元素节点
+        const brotherNode04 = div.previousElementSibling;
+        console.log(brotherNode02);  // sapn
+
+        function getNextElementSibling(element) {
+            let el = element;
+            // 除去非元素节点
+            while(el = el.nextSibling) {
+                if(el.nodeType === 1) {
+                    return el;
+                }
+            }
+            // 没有兄弟节点时
+            return null;
+        }
+
+        console.log(getNextElementSibling(div));
+    </script>
+</body>
+</html>

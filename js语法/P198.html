@@ -1,0 +1,40 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-11-30 14:13:10
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-11-30 14:21:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="text">hello1!</p>
+    <p class="text">hello2!</p>
+    <p class="text">hello3!</p>
+
+
+    <script>
+        const nd_p = document.getElementsByClassName('text')
+        console.log(nd_p);
+
+        // 1.选择器，需要加对应的id、类符号
+        // 返回第一个元素
+        const nd_query_p = document.querySelector('.text');
+        console.log(nd_query_p);
+
+        // 2.获取body元素
+        const bodyEle = document.body;
+        console.log(bodyEle);
+
+        // 3.获取html元素
+        const htmlEle = document.documentElement;
+        console.log(htmlEle);
+    </script>
+</body>
+</html>

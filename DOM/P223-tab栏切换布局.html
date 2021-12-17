@@ -1,0 +1,138 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-12 14:54:14
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-13 13:12:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tab_box {
+            width: 1000px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        
+        .tab_list {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            border-bottom: 2px solid red;
+            background-color: #f1f1f1;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .tab_list li {
+            float: left;
+            height: 40px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .tab_content {
+            padding: 20px;
+            min-height: 100px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="tab_box">
+        <div id="tab_list" class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+
+        <div id="tab_content" class="tab_content">
+            <div class="item" style="display: block;">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 获取tab列表
+        const tab_list = document.getElementById('tab_list').querySelectorAll('li');
+        const tab_content = document.querySelectorAll('.item');
+        // 设置自定义属性tab_index
+        for (let i = 0; i < tab_list.length; i++) {
+            tab_list[i].setAttribute('index', i);
+        }
+
+        // 给tab添加点击事件
+        for (let i = 0; i < tab_list.length; i++) {
+            tab_list[i].onclick = function() {
+                // 更改背景颜色,排除其他，留下自己
+                for (let j = 0; j < tab_list.length; j++) {
+                    tab_list[j].className = '';
+                    tab_content.s
+                }
+                this.className = 'current';
+
+                // 切换显示内容
+                let index =  this.getAttribute('index');
+                console.log(index);
+                // 先将所有的内容隐藏
+                for(let i = 0;i<tab_content.length;i++) {
+                    tab_content[i].style.display = 'none';
+                }
+                tab_content[index].style.display = 'block';
+            }
+
+        }
+
+        const box =document.getElementById('box');
+        console.log(box);
+        box.setAttribute('data-index',100)
+        res = box.dataset['index']
+        console.log(res);
+    </script>
+</body>
+
+</html>

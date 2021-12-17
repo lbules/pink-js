@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. 1到100所有数的总和与平均值
+        let sum1 = 0;
+        for (let i = 1; i <= 100; i++) {
+            sum1 += i;
+            if (i == 100) {
+                console.log(`总和是${sum1},平均值是${sum1/i}`);
+                break;
+            }
+        }
+
+        // 2. 1--100偶数的总和
+        let sum2 = 0;
+        for (let i = 1; i <= 100; i++) {
+            sum2 += i%2==0?i:0
+        }
+        console.log(`1--100偶数的总和${sum2}`);
+
+         // 3. 1--100是7倍数的总和
+         let sum3 = 0;
+        for (let i = 1; i <= 100; i++) {
+            sum3 += i%7==0?i:0
+        }
+        console.log(`1--100是7倍数的总和${sum3}`);
+    </script>
+</body>
+
+</html>

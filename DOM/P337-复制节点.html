@@ -1,0 +1,33 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-16 15:13:01
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-16 15:16:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复制节点</title>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        let ul = document.querySelector('ul');
+        let box = document.querySelector('.box');
+        // 参数为空或者false时，浅拷贝，不复制子节点。参数为true时克隆子节点
+        copy_ul = ul.cloneNode(true);
+        box.append(copy_ul);
+    </script>
+</body>
+</html>

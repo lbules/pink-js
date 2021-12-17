@@ -1,0 +1,69 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-14 14:54:15
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-15 15:09:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建节点</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            margin: 100px auto;
+            width: 800px;
+            height: 800px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>留言板</h1>
+        <textarea name="ly" id="ly" cols="30" rows="10"></textarea>
+        <button>留言</button>
+        <ul class="ly-list">
+        </ul>
+    </div>
+
+    <script>
+        const lyarea = document.querySelector('textarea');
+        const btn = document.querySelector('button');
+        const list = document.querySelector('ul');
+        // -------------添加留言-----------------
+        btn.onclick = function() {
+            // 获取输入内容
+            let text = lyarea.value;
+            lyarea.value = '';
+            // 生成节点
+            const li = document.createElement('li');
+            const del_btn = document.createElement('button');
+            del_btn.innerHTML = 'delete';
+            li.innerHTML = text;
+            // 删除按钮绑定事件
+            del_btn.onclick = function() {
+                list.removeChild(this.parentElement);
+                console.log('节点已删除');
+            }
+
+            // 添加节点
+            li.append(del_btn);
+            list.append(li);
+        }
+    </script>
+</body>
+
+</html>

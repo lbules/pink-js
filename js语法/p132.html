@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-11-19 15:32:30
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-11-19 15:38:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户输入年份，输出当前2月份的天数</title>
+</head>
+
+<body>
+
+    <script>
+        function backDay() {
+            let year = prompt("请输入年份");
+
+            if (isRunYear(year)) {
+                alert("29 days");
+            } else {
+                alert("28 days")
+            }
+        }
+
+        /**
+         * @description: 判断是否为闰年
+         * @param {*} year
+         * @return {*}
+         */        
+        function isRunYear(year) {
+            let flag = false;
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                flag = true;
+            }
+            return flag;
+        }
+
+        backDay()
+    </script>
+</body>
+
+</html>

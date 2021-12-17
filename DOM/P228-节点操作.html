@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-13 13:37:52
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-13 15:53:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点操作</title>
+</head>
+<body>
+    <div class="box">
+        <span class="erweima">X</span>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        // 父节点
+        const er = document.querySelector('.erweima');
+        const parent = er.parentNode;
+        const ul = document.querySelector('ul')
+        console.log(parent);
+
+        // ul 下的所有li子节点
+        const lis = document.querySelector('ul').childNodes;
+        console.log(lis);
+        // 所有的子元素节点
+        const lis1 = document.querySelector('ul').children
+        console.log(lis1);
+
+        // 获取第一个子节点
+        const first = ul.firstChild;
+        console.log(first);  // #text
+        // 获取最后一个子节点
+        const last = ul.lastChild;
+        console.log(last);  // #text
+
+        // 获取第一个子元素节点
+        console.log(ul.firstElementChild);  // li
+        // 获取最后一个子元素节点
+        console.log(ul.lastElementChild);  // li
+    </script>
+</body>
+</html>

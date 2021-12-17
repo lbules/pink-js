@@ -1,0 +1,95 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-16 15:19:53
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-16 22:05:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+
+    <style>
+        .box {
+            margin: 100px;
+        }
+        
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        td,
+        th {
+            border: 1px solid #333;
+        }
+        
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        const info = [
+            ['A', 'English', '89', ],
+            ['B', 'English', '89', ],
+            ['C', 'English', '89', ],
+            ['D', 'English', '89', ]
+        ]
+        let table = document.querySelector('table');
+        let tbody = document.querySelector('tbody');
+
+        for (let i = 0; i < info.length; i++) {
+            tbody.insertRow(i); // 创建一行
+
+            for (let j = 0; j < info[i].length; j++) {
+                tbody.rows[i].insertCell(j); //创建一个列
+                tbody.rows[i].cells[j].append(document.createTextNode(info[i][j])); //添加文本内容
+            }
+            // 每行末尾添加一个删除连接
+            let delete_td = document.createElement('td');
+            delete_td.innerHTML = 'delete';
+            // 添加到节点
+            tbody.rows[i].append(delete_td);
+            // 绑定删除事件
+            delete_td.onclick = function() {
+                // 删除当前行
+               /*  不能用下面这种方式，因为删完一行后，rows里的行也会发生变化，，因此索引可能会出现错误。
+               例如四行中被删掉了前面三行，第四行的索引i值为3，但是rows()里只有一行,此时执行删除第三行的自然会报错
+               tbody.deleteRow(i);
+                console.log(i); */
+                tbody.removeChild(this.parentNode);  // 删除其父节点
+            }
+
+        }
+    </script>
+</body>
+
+</html>

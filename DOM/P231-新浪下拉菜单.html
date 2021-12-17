@@ -1,0 +1,127 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-13 15:59:08
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-14 14:08:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪下拉菜单</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .box {
+            margin: 100px 200px;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .tab_menu {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        .tab_menu>li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 40px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        
+        .tab_menu li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #333;
+        }
+        
+        .tab_menu>li>a:hover {
+            background-color: #eee;
+        }
+        
+        .menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            box-sizing: border-box;
+            width: 100%;
+            border-left: 1px solid #FECC5B;
+            border-right: 1px solid #FECC5B;
+        }
+        
+        .menu li {
+            border-bottom: 1px solid #FECC5B;
+        }
+        
+        .menu li a:hover {
+            background-color: #FFF5DA;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="tab_menu">
+            <li><a href="">微博</a>
+                <ul class="menu">
+                    <li><a href="">私信</a></li>
+                    <li><a href="">评论</a></li>
+                    <li><a href="">@我</a></li>
+                </ul>
+            </li>
+            <li><a href="">博客</a>
+                <ul class="menu">
+                    <li><a href="">私信</a></li>
+                    <li><a href="">评论</a></li>
+                    <li><a href="">@我</a></li>
+                </ul>
+            </li>
+            <li><a href="">邮箱</a>
+                <ul class="menu">
+                    <li><a href="">私信</a></li>
+                    <li><a href="">评论</a></li>
+                    <li><a href="">@我</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // 返回的一个节点，不是数组
+        const tabMenu = document.querySelector('.tab_menu');
+        // 子节点
+        const list = tabMenu.children;
+        console.log(list);
+        for (let i = 0; i < list.length; i++) {
+            list[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            list[i].onmouseout = function() {
+                this.children[1].style.display = 'none'
+            }
+        }
+    </script>
+</body>
+
+</html>

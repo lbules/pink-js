@@ -1,0 +1,71 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-05 15:21:40
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-05 15:42:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏文本框内容</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+        }
+        .box {
+            margin: 150px;
+            width: 378px;
+        }
+
+        input {
+            box-sizing: border-box;
+            float: left;
+            width: 300px;
+            height: 32px;
+            padding-left: 5px;
+            border: 2px solid blue;
+            outline: none;
+        }
+        button {
+            float: left;
+            width: 70px;
+            height: 32px;
+            font-size: 16px;
+            color: white;
+            background-color: blueviolet;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" value="手机">
+        <button>搜索</button>
+    </div>
+
+    <script>
+        const input = document.querySelector('input');
+        console.log(input);
+        // 输入框获得焦点时，文本框内容清空
+        input.onfocus = function() {
+            if(input.value === '手机') {
+                input.value = '';
+            }
+            
+        }
+        // 失去焦点时
+        input.onblur = function() {
+            // 如果内容为空
+            if(input.value === '') {
+                input.placeholder = '手机'
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-09 14:21:06
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-09 14:29:39
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世纪佳缘用户名隐藏</title>
+</head>
+
+<style>
+    .box {
+        margin: 200px auto;
+        width: 400px;
+        height: 100px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    input {
+        width: 250px;
+        height: 25px;
+        outline: none;
+        border: 1px solid #999;
+        border-radius: 3px;
+        color: #999;
+        padding-left: 10px;
+    }
+</style>
+<body>
+    
+        <div class="box">
+            <input type="text" value="用户名">
+        </div>
+    <script>
+        const input = document.querySelector('input');
+        input.onfocus = function() {
+            if(input.value=='用户名') {
+                input.value = '';
+                input.style.color='black';
+            }
+        }
+        
+        input.onblur = function() {
+            if(input.value=='') {
+                input.value = '用户名';
+                input.style.color = '#999';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-11-30 15:23:09
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-11-30 15:32:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        hello!
+    </div>
+
+    <script>
+        // 获取节点
+        const div = document.querySelector('div');
+
+        // 获取当前时间
+        const time = new Date();
+        const hour = time.getHours()
+
+        // 根据当前时间修改问候语
+        if(hour>=6&&hour<8) {
+            div.innerHTML = '早上好啊！';
+        }else if(hour>=8 && hour<11) {
+            div.innerHTML = '上午好啊！'
+        }else if(hour>=11 && hour<13) {
+            div.innerHTML = '中午好啊!'
+        }else if(hour>=13 && hour<18) {
+            div.innerHTML = '下午好啊！'
+        }else {
+            div.innerHTML = '晚上好！'
+        }
+    </script>
+</body>
+</html>

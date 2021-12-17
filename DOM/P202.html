@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-11-30 14:59:33
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-11-30 15:11:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>display time</button>
+    <div>time</div>
+
+    <p>
+        ppppppp
+        <span>123</span>
+    </p>
+
+    <script>
+        const p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+
+        // 点击了按钮div里文字会发生变化
+        const button = document.querySelector('button');
+        const div = document.querySelector('div');
+
+        button.onclick = function() {
+            div.innerText = new Date()
+        }
+    </script>
+</body>
+</html>

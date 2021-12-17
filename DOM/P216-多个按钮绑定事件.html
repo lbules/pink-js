@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-09 14:41:51
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-09 14:55:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多个按钮绑定事件</title>
+</head>
+
+<body>
+    <button>button1</button>
+    <button>button2</button>
+    <button>button3</button>
+    <button>button4</button>
+    <button>button5</button>
+
+    <script>
+        const btns = document.getElementsByTagName('button');
+        // 点击那个按钮，按钮背景色变为红色 
+        for(let i = 0;i<btns.length;i++) {
+            btns[i].onclick = function() {
+                // 1.去掉所有按钮的背景色
+                for(let i = 0;i<btns.length;i++) {
+                    btns[i].style.backgroundColor = '';
+                }
+               this.style.backgroundColor = 'red';
+
+            }
+        }
+    </script>
+</body>
+
+
+</html>
