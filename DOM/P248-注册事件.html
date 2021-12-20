@@ -1,0 +1,53 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-18 15:06:58
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-18 15:29:34
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件注册</title>
+</head>
+
+<body>
+    <button>old</button>
+    <button>new</button>
+
+    <script>
+        let btn_list = document.querySelectorAll('button');
+        btn_list[0].onclick = function() {
+                alert('hi!')
+            }
+            // 后面的函数会覆盖掉前面的
+        btn_list[0].onclick = function() {
+            alert('hello!')
+        }
+
+        // 依次执行两个函数
+        btn_list[1].addEventListener('click', function() {
+            alert('new hi!');
+        })
+        btn_list[1].addEventListener('click', function() {
+            alert('new hello!');
+        })
+
+        // ------------------注册函数兼容性封装--------------
+        function addEventListener(element, eventName, fn) {
+            if (element.addEventListener) {
+                element.addEventListener(eventName, fn);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, fn);
+            } else {
+                element['on' + eventName] = fn;
+            }
+        }
+    </script>
+</body>
+
+</html>

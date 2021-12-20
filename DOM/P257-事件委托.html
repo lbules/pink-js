@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-19 21:52:18
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-19 22:12:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        li {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        let ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            let info = e.target.innerHTML;
+            console.log(e);
+            console.log(e.target.nodeName);
+            if (e.target.nodeName === 'LI') {
+                alert(info);
+            }
+
+        })
+
+        // 
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener('selectstart',function(e){
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

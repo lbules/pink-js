@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-18 15:48:04
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-18 16:05:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除事件</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+
+    <script>
+        let div_list = document.querySelectorAll('div');
+        div_list[0].onclick = function() {
+            alert('this is the 1 box');
+            // 弹出后解绑事件
+            div_list[0].onclick = null;
+        }
+
+        div_list[1].addEventListener('click', fn);
+        // 事件处理函数在外部进行定义
+        function fn() {
+            alert('this is the 2 box');
+            // 删除事件监听
+            div_list[1].removeEventListener('click', fn);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-18 16:18:47
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-18 16:29:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件流</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            background-color: pink;
+        }
+        
+        .son {
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+            son
+        </div>
+    </div>
+
+    <script>
+        // 在捕获阶段：document->html->body->father->son
+        // son的点击事件被触发，按照捕获阶段的顺序，如果son前面也有元素由点击事件的监听，则会先触发
+        let son = document.querySelector('.son');
+        let father = document.querySelector('.father');
+        son.addEventListener('click',function(){
+            alert('son')
+        },false)
+
+        father.addEventListener('click',function(){
+            alert('father')
+        },false)
+    </script>
+</body>
+
+</html>
