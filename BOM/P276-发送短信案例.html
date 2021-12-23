@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-22 21:55:09
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-23 14:34:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <button>send</button>
+
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', function() {
+            // 禁用按钮
+            btn.disabled = true;
+            // 开启定时器
+            let i = 10;
+            btn.innerText = `${i}秒后可以继续发送`;
+            let timer = setInterval(() => {
+                if (i > 0) {
+                    i--;
+                    btn.innerText = `${i}秒后可以继续发送`;
+                } else {
+                    // 取消禁用
+                    btn.disabled = false;
+                    // 清除定时器
+                    clearInterval(timer);
+                    btn.innerText = 'send';
+                }
+
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

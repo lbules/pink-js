@@ -1,0 +1,93 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-20 20:55:15
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-20 21:30:30
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟京东快递对话框</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .search {
+            position: relative;
+            width: 200px;
+            margin: 100px;
+        }
+        
+        .con {
+            display: none;
+            width: 200px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+            font-size: 24px;
+            line-height: 30px;
+            color: #333;
+        }
+        
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 30px;
+            left: 10px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+        
+        input {
+            width: 200px;
+            height: 20px;
+            margin-top: 20px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" name="" id="">
+    </div>
+
+    <script>
+        let con = document.querySelector('.con');
+        let jd_input = document.querySelector('input');
+        jd_input.addEventListener('keyup', function(e) {
+            if (this.value == '') {
+                // 没有内容隐藏
+                con.style.display = 'none';
+            } else {
+                // 输入内容是放大显示
+                con.style.display = 'block';
+                con.innerText = jd_input.value;
+            }
+        })
+        /* ---------------失去焦点时------------------ */
+        jd_input.addEventListener('blur', function() {
+            con.style.display = 'none';
+        })
+        
+        /* ---------------获得焦点时------------------ */
+        jd_input.addEventListener('focus', function() {
+            if(this.value!='') {
+                con.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+
+</html>

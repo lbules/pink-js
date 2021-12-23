@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-22 15:33:57
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-22 16:04:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid #999; */
+        }
+        
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="hour">00</span>
+        <span class="minute">00</span>
+        <span class="second">00</span>
+    </div>
+
+    <script>
+        let hour = document.querySelector('.hour');
+        let minute = document.querySelector('.minute');
+        let second = document.querySelector('.second');
+
+        let inputTime = new Date('2021-12-22 17:10:00');
+        
+        // ---------刷新倒计时-----------
+        function countDown() {
+            // 获取当前时间
+            let nowTime = +new Date();
+            // 时差,总秒数
+            let times = (inputTime - nowTime) / 1000;
+            // 小时数
+            let h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            // 分钟数
+            let m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            // 秒数
+            let s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            // 更新倒计时
+            hour.innerHTML = h+'时';
+            minute.innerHTML = m+'分';
+            second.innerHTML = s+'秒';
+        }
+        // 先执行一次
+        countDown()
+        // 定时器执行
+        setInterval(countDown, 1000);
+    </script>
+</body>
+
+</html>

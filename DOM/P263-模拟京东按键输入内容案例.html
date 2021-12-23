@@ -1,0 +1,51 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-20 15:03:19
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-20 20:51:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟京东按键输入内容案例</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+        input {
+            margin: 100px;
+            width: 200px;
+            height: 40px;
+            padding-left: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text">
+    </div>
+
+    <script>
+        // -------------键盘按s自动聚焦到输入框---------------
+        let input = document.querySelector('input');
+        // 此处使用keyup，松开触发比较好
+        document.addEventListener('keyup',function(e){
+            if(e.key == 's'||e.key=='S'){
+                // 获得焦点
+                input.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>

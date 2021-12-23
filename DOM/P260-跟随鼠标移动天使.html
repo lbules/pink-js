@@ -1,0 +1,34 @@
+<!--
+ * @Description: 
+ * @Author: Lars
+ * @Date: 2021-12-20 14:44:22
+ * @LastEditors: Lars
+ * @LastEditTime: 2021-12-20 14:51:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跟随鼠标移动的天使</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/angel.gif" alt="">
+
+    <script>
+        let img = document.querySelector('img');
+        document,addEventListener('mousemove',function(e){
+            let x = e.clientX;
+            let y = e.clientY;
+            img.style.left = `${x-40}px`;
+            img.style.top = `${y-40}px`;
+        })
+    </script>
+</body>
+</html>
